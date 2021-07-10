@@ -1,6 +1,7 @@
 
 from models.Message import Message
 
+
 class MovieTicketSystem:
 
     def __init__(self):
@@ -15,8 +16,13 @@ class MovieTicketSystem:
     def set_number_of_shows(self):
         self.number_of_shows = len(self.show_list)
 
+
     def get_available_seats(self, show_number):
         return self.show_list.get(show_number, [])
+
+
+    def check_show_availability(self, requested_show):
+        return requested_show in self.show_list
 
 
     @staticmethod
@@ -43,11 +49,10 @@ class MovieTicketSystem:
 
         if not are_seats_available:
             message.seat_not_available_message()
-            return
+            return None
 
         self.update_available_seats(requested_seats, available_seats)
         message.booking_successful_message()
-
 
 
 
