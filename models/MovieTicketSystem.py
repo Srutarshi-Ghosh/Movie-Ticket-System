@@ -6,15 +6,10 @@ class MovieTicketSystem:
 
     def __init__(self):
         self.show_list = {}
-        self.number_of_shows = 0
 
     def set_show(self, show):
         show_number = show.get_show_number()
         self.show_list[show_number] = set(show.available_seats)
-        self.set_number_of_shows()
-
-    def set_number_of_shows(self):
-        self.number_of_shows = len(self.show_list)
 
 
     def get_available_seats(self, show_number):
