@@ -2,12 +2,9 @@
 
 class MovieShow:
 
-    def __init__(self, show_no):
+    def __init__(self, show_no, available_seats):
         self.show_number = show_no
-        self.available_seats = []
-
-    def set_available_seats(self, seat_list):
-        self.available_seats = seat_list
+        self.available_seats = available_seats
 
     def get_show_number(self):
         return self.show_number

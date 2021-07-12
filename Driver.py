@@ -15,12 +15,10 @@ class Driver:
 
 
     def set_movvie_ticket_system(self):
-        show1 = MovieShow(1)
-        show1.set_available_seats(['A1', 'A2', 'A3', 'A4'])
+        show1 = MovieShow(1, ['A1', 'A2', 'A3', 'A4'])
         self.movie_system.set_show(show1)
 
-        show2 = MovieShow(2)
-        show2.set_available_seats(['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3'])
+        show2 = MovieShow(2, ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3'])
         self.movie_system.set_show(show2)
 
 
@@ -57,7 +55,6 @@ class Driver:
 
 
     def main(self):
-
         exited = False
         while not exited:
             self.book_seats()

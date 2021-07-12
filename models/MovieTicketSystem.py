@@ -13,7 +13,7 @@ class MovieTicketSystem:
 
 
     def get_available_seats(self, show_number):
-        return self.show_list.get(show_number, [])
+        return self.show_list.get(show_number, set())
 
 
     def check_show_availability(self, requested_show):
@@ -40,11 +40,11 @@ class MovieTicketSystem:
         requested_seats = group.get_requested_seats()
         message = Message()
 
-        are_seats_available = self.check_seat_availability(available_seats, requested_seats)
+        seats_available = self.check_seat_availability(available_seats, requested_seats)
 
-        if not are_seats_available:
+        if not seats_available:
             message.seat_not_available_message()
-            return None
+            return
 
         self.update_available_seats(requested_seats, available_seats)
         message.booking_successful_message()
